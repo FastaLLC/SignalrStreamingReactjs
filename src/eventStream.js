@@ -5,12 +5,6 @@ import "./App.css";
 const EventStream = (props) => {
   const [connection, setConnection] = useState(undefined);
   const [data, setData] = useState([]);
-  const [first, setFirst] = useState(true);
-  const [latLng, setLatLng] = useState([7.329, 9.123]);
-  const [center, setCenter] = useState({
-    lat: latLng[0],
-    lng: latLng[1],
-  });
 
   useEffect(() => {
     const newConnection = new HubConnectionBuilder()
@@ -43,7 +37,7 @@ const EventStream = (props) => {
         })
         .catch((e) => console.log("Connection failed: ", e));
     }
-  }, [connection, latLng]);
+  }, [connection]);
 
   return (
     <div className="App">
